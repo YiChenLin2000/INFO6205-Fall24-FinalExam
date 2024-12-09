@@ -13,13 +13,8 @@ public class Fibonacci {
      * else <code>fibN(n-1)</code> + <code>fibN(n-2)</code>.
      */
     public long fibN(int n) {
-        long n0 = 0;
-        long n1 = 1;
         if(n < 0) return -1L;
         else if(n > 92) return -1L;
-        else if(n == 0) return n0;
-        else if(n == 1) return n1;
-        //if (n > 1 && n < 92) return fibN(n - 1) + fibN(n - 2);
         memo[0] = 0;
         memo[1] = 1;
         for(int i = 2; i < 93; i ++){

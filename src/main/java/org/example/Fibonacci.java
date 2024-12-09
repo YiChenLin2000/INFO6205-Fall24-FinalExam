@@ -1,5 +1,7 @@
 package org.example;
 
+import java.lang.reflect.Array;
+
 public class Fibonacci {
 
     /**
@@ -11,7 +13,20 @@ public class Fibonacci {
      * else <code>fibN(n-1)</code> + <code>fibN(n-2)</code>.
      */
     public long fibN(int n) {
-        return -1L;
+        long n0 = 0;
+        long n1 = 1;
+        if(n < 0) return -1L;
+        else if(n > 92) return -1L;
+        else if(n == 0) return n0;
+        else if(n == 1) return n1;
+        //if (n > 1 && n < 92) return fibN(n - 1) + fibN(n - 2);
+        memo[0] = 0;
+        memo[1] = 1;
+        for(int i = 2; i < 93; i ++){
+            memo[i] = memo[i - 1] + memo[i - 2];
+        }
+        return memo[n];
+        
     }
 
     /**
@@ -21,10 +36,15 @@ public class Fibonacci {
      * @return the sum of the Fibonacci numbers 0 through n.
      */
     public long sumN(int n) {
-         return -1L;
+        long sum = 0;
+        for(int i = 0; i <= n; i++){
+            sum = fibN(i) + sum;
+        }
+         return sum;
     }
 
     public Fibonacci() {
+
     }
 
     private final long[] memo = new long[93];
